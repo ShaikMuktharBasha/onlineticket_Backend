@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? ['https://onlineticket-frontend.vercel.app']
-    : ['http://localhost:5173']
+  origin: '*', // Allow all origins for now to ensure deployment works
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
