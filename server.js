@@ -12,10 +12,15 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? ['https://your-frontend-domain.vercel.app']
+    ? ['https://onlineticket-frontend.vercel.app']
     : ['http://localhost:5173']
 }));
 app.use(express.json());
+
+// Root Route
+app.get('/', (req, res) => {
+  res.json({ message: 'TravelSathi Backend is running 🚀' });
+});
 
 // Initialize database connection and tables
 const startServer = async () => {
